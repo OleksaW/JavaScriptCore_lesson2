@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 26</title>
+    <script src="https://underscorejs.org/underscore-min.js"></script>
+</head>
+<body>
+    <script>
+        /*1. Створити клас Авто із полями brandName, model, productionYear.
+2. Використовуючи метод create привести обєкт до прототипу Авто.
+3. Використовуючи метод invert зробити заміну ключів і значень обєкта.
+4. Використовуючи метод pick/omit вивести поля обєкта окрім поля 'model'. 
+         */
+        function Auto(brand, model, year){
+            this.brandName = brand;
+            this.model = model;
+            this.productionYear = year;
+        }
+        var auto = _.create(Auto.prototype,{brandName:"Audi",model:"a7",productionYear:2013});
+        console.log("Object with Auto.prototype:");
+        console.log(auto);
+        
+        var autoInv = _.invert(auto);
+        console.log("Inverted object:");
+        console.log(autoInv);
+        
+        var autoOmit = _.omit(auto,"model");
+        console.log("Object without 'model' field:");
+        console.log(autoOmit);
+    </script>
+</body>
+</html>
